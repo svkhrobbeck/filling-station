@@ -9,42 +9,42 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
+    <!-- HEADER -->
+    <header class="header">
       <div class="container">
-        <h1 class="title">Yoqilg'i quyish shahobchasi <i class="bx bxs-gas-pump"></i></h1>
+        <h1 class="header__title">Yoqilg'i quyish shahobchasi <i class="bx bxs-gas-pump"></i></h1>
       </div>
       <hr />
     </header>
 
-    <main>
-      <div class="container">
-        <form id="form">
-          <div class="cards">
-            <div class="cards-inner">
-              <div class="field-wrapper">
-                <select class="select" id="select" title="Yoqilgi turi"></select>
-                <input class="input" id="input" type="number" placeholder="Qancha" />
-              </div>
-              <p class="price-text">Narxi: <span id="price">0</span></p>
-              <button class="button" type="submit">Quyish</button>
+    <!-- MAIN -->
+    <main class="main-content">
+      <section class="fuel">
+        <div class="fuel__container container">
+          <form class="form" id="form">
+            <div class="form__fields">
+              <select class="form__field" id="select" title="Yoqilgi turi"></select>
+              <input class="form__field" id="input" type="number" placeholder="Qancha" />
             </div>
+            <p class="form__price-text">Narxi: <span id="price">0</span></p>
+            <button class="button" type="submit">Quyish</button>
+          </form>
 
-            <table width="100%" border="1" cellspacing="0" id="table">
-              <thead>
-                <tr>
-                  <th>Tur</th>
-                  <th>Miqdor</th>
-                  <th>Narx</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </form>
-      </div>
+          <table class="table" id="table">
+            <thead>
+              <tr>
+                <th>Tur</th>
+                <th>Miqdor</th>
+                <th>Narx</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
-    <!-- script -->
+    <!-- SCRIPT -->
     <script src="js/app.js"></script>
   </body>
 </html>

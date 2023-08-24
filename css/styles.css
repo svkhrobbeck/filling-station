@@ -18,65 +18,7 @@
   padding: 0 20px;
 }
 
-/*! HEADER */
-header {
-  padding: 20px 0;
-}
-
-.title {
-  font-family: "Noto Sans", sans-serif;
-}
-
-/* CARDS */
-.cards {
-  display: flex;
-  margin-top: 100px;
-}
-
-.cards-inner {
-  display: flex;
-  flex-direction: column;
-}
-
-.cards-inner:not(:last-child) {
-  margin-right: 20px;
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.field-wrapper {
-  max-width: 60%;
-  width: 100%;
-  display: flex;
-  gap: 10px;
-  max-height: 50px;
-  margin-bottom: 20px;
-}
-
-.select,
-.input {
-  padding: 4px 8px;
-  font-size: 25px;
-  text-align: center;
-  border-radius: 0;
-  border: 1px solid #000;
-  flex-grow: 1;
-}
-
-.price-text {
-  font-size: 30px;
-  font-family: "Arimo", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  font-family: "Arimo", sans-serif;
-}
-
+/** BUTTON */
 .button {
   padding: 4px 12px;
   border-radius: 0;
@@ -87,8 +29,65 @@ form {
   margin-top: auto;
 }
 
+/* HEADER */
+.header {
+  padding: 20px 0;
+}
+
+.header__title {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* FUEL */
+.fuel__container {
+  display: flex;
+  margin-top: 100px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form:not(:last-child) {
+  margin-right: 20px;
+}
+
+.form__fields {
+  max-width: 60%;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  max-height: 50px;
+  margin-bottom: 20px;
+}
+
+.form__field {
+  padding: 4px 8px;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 0;
+  border: 1px solid #000;
+  flex-grow: 1;
+}
+
+.form__price-text {
+  font-size: 30px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: "Arimo", sans-serif;
+}
+
 /* TABLE */
-table,
+.table {
+  width: 100%;
+}
+
+.table,
 th,
 tr,
 td {
@@ -97,17 +96,17 @@ td {
   border-collapse: collapse;
 }
 
-table thead {
-  font-family: "Arimo", sans-serif;
+.table thead {
   font-weight: 600;
 }
 
-table th {
+.table th {
+  font-family: "Arimo", sans-serif;
   padding: 10px 15px;
   background-color: bisque;
 }
 
-table td {
+.table td {
   padding: 10px 15px;
   font-family: "Noto Sans", sans-serif;
   text-align: center;
