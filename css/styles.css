@@ -1,0 +1,131 @@
+/*? GENERAL */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 2px dashed #000;
+  outline-offset: 3px;
+}
+
+/** CONTAINER */
+.container {
+  max-width: 80%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*! HEADER */
+header {
+  padding: 20px 0;
+}
+
+.title {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  margin-top: 100px;
+}
+
+.cards-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-inner:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-wrapper {
+  max-width: 60%;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  max-height: 50px;
+  margin-bottom: 20px;
+}
+
+.select,
+.input {
+  padding: 4px 8px;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 0;
+  border: 1px solid #000;
+  flex-grow: 1;
+}
+
+.price-text {
+  font-size: 30px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: "Arimo", sans-serif;
+}
+
+.button {
+  padding: 4px 12px;
+  border-radius: 0;
+  background-color: rgb(148, 236, 85);
+  font-size: 25px;
+  border: 1px solid #000;
+  white-space: nowrap;
+  margin-top: auto;
+}
+
+/* TABLE */
+table,
+th,
+tr,
+td {
+  font-size: 22px;
+  border: 2px solid #000;
+  border-collapse: collapse;
+}
+
+table thead {
+  font-family: "Arimo", sans-serif;
+  font-weight: 600;
+}
+
+table th {
+  padding: 10px 15px;
+  background-color: bisque;
+}
+
+table td {
+  padding: 10px 15px;
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+}
+
+/* TABLE FUEL ROWS */
+.ai80 {
+  background-color: rgb(225, 225, 225);
+}
+
+.ai92 {
+  background-color: rgb(215, 215, 215);
+}
+
+.ai95 {
+  background-color: rgb(205, 205, 205);
+}
+
+.dizel {
+  background-color: rgb(195, 195, 195);
+}
