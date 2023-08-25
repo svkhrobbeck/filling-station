@@ -1,9 +1,12 @@
 // elements
 const elSelect = document.querySelector("#select");
 const elInput = document.querySelector("#input");
-const elTBody = document.querySelector("#table tbody");
+const elFuelTBody = document.querySelector("#fuel-table tbody");
 const elPrice = document.querySelector("#price");
+const elWarn = document.querySelector("#warn");
 const elForm = document.querySelector("#form");
+const elPurchasesTable = document.querySelector("#purchases-table");
+const elPurchasesTBody = document.querySelector("#purchases-table tbody");
 
 // variables
 const fuels = [
@@ -13,7 +16,9 @@ const fuels = [
   { name: "Dizel", type: "dizel", price: 5000, base: 1000 },
 ];
 
-// render options
+const purchases = [];
+
+// render select options
 const renderSelectOptions = (data, elSelect) => {
   elSelect.innerHTML = `<option value="" selected hidden>Select Fuel Type</option>`;
 
@@ -26,13 +31,36 @@ const renderSelectOptions = (data, elSelect) => {
   });
 };
 
-// render rows
+// render purchases table rows
+const renderPurchasesTableRows = (data, tbody) => {
+  tbody.innerHTML = "";
+
+  data.forEach((item, idx) => {
+    tbody.innerHTML += `
+    <tr class="${item.type}">
+      <td>${idx + 1}</td>
+      <td>${item.type}</td>
+      <td>${item.amount.toLocaleString()}</td>
+      <td>${item.price.toLocaleString()}</td>
+    </tr>
+    `;
+  });
+
+  tbody.innerHTML += `
+  <tr class="total-row">
+    <td colspan="2">Total</td>
+    <td>${data.reduce((a, b) => a + b.amount, 0).toLocaleString()}</td>
+    <td>${data.reduce((a, b) => a + b.price, 0).toLocaleString()}</td>
+  </tr>`;
+};
+
+// render fuel table rows
 const renderTableRows = (data, tbody) => {
   tbody.innerHTML = "";
 
   data.forEach(item => {
     tbody.innerHTML += `
-    <tr class="${item.type}">
+    <tr class="${item.type} ${item.base === 0 && "disabled-row"}">
       <td>${item.type}</td>
       <td>${item.base}</td>
       <td>${item.price.toLocaleString()}</td>
@@ -47,23 +75,36 @@ const calculate = e => {
   if (!elInput.value.trim()) return;
 
   const selectedType = fuels.find(fuel => fuel.type === elSelect.value);
-  const value = +elInput.value;
+  const amount = +elInput.value;
 
-  if (value > selectedType.base) {
-    elPrice.textContent = (selectedType.base * selectedType.price).toLocaleString();
+  if (amount > selectedType.base) {
+    const price = selectedType.base * selectedType.price;
+    elPrice.textContent = price.toLocaleString();
+    elWarn.classList.remove("visually-hidden");
+
+    elWarn.textContent = `You have entered more than all the ${selectedType.type} we have, we can only give you what we have!`;
+
+    purchases.push({ ...selectedType, amount: selectedType.base, price });
     selectedType.base = 0;
   } else {
-    elPrice.textContent = (value * selectedType.price).toLocaleString();
-    selectedType.base -= value;
+    const price = amount * selectedType.price;
+    elPrice.textContent = price.toLocaleString();
+    selectedType.base -= amount;
+
+    purchases.push({ ...selectedType, amount, price });
   }
 
-  renderTableRows(fuels, elTBody);
+  if (elPurchasesTable.classList.contains("visually-hidden")) elPurchasesTable.classList.remove("visually-hidden");
+
+  renderPurchasesTableRows(purchases, elPurchasesTBody);
+  renderTableRows(fuels, elFuelTBody);
   renderSelectOptions(fuels, elSelect);
+  e.target.reset();
 };
 
 // content loaded
 renderSelectOptions(fuels, elSelect);
-renderTableRows(fuels, elTBody);
+renderTableRows(fuels, elFuelTBody);
 
 // events
 elForm.addEventListener("submit", calculate);

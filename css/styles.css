@@ -10,12 +10,30 @@
   outline-offset: 3px;
 }
 
+body {
+  font-family: "Arial", sans-serif;
+}
+
 /** CONTAINER */
 .container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* VISUALLY-HIDDEN */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /** BUTTON */
@@ -37,6 +55,7 @@
   align-items: center;
   gap: 2px;
   white-space: nowrap;
+  border-bottom: 1px solid #000;
 }
 
 .header__title {
@@ -44,9 +63,30 @@
 }
 
 /* FUEL */
+.fuel {
+  margin-bottom: 50px;
+}
+
 .fuel__container {
   display: flex;
   margin-top: 100px;
+}
+
+.fuel__price-text {
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.fuel__warn-text {
+  color: orange;
+  font-size: 19px;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 /* FORM */
@@ -73,27 +113,20 @@
   flex-grow: 1;
 }
 
-.fuel__price-text {
-  font-size: 30px;
-  font-family: "Arimo", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  font-family: "Arimo", sans-serif;
-  margin-top: 10px;
-}
-
 /* TABLE */
 .table-wrappwer {
   flex-grow: 1;
 }
 
-.table {
+table {
   width: 100%;
 }
 
-.table,
+caption {
+  margin-bottom: 15px;
+}
+
+table,
 th,
 tr,
 td {
@@ -102,17 +135,16 @@ td {
   border-collapse: collapse;
 }
 
-.table thead {
+table thead {
   font-weight: 600;
 }
 
-.table th {
-  font-family: "Arimo", sans-serif;
+table th {
   padding: 10px 15px;
   background-color: bisque;
 }
 
-.table td {
+table td {
   padding: 10px 15px;
   font-family: "Noto Sans", sans-serif;
   text-align: center;
@@ -120,19 +152,31 @@ td {
 
 /* TABLE FUEL ROWS */
 .ai80 {
-  background-color: rgb(225, 225, 225);
+  background-color: #e1e1e1;
 }
 
 .ai92 {
-  background-color: rgb(215, 215, 215);
+  background-color: #d7d7d7;
 }
 
 .ai95 {
-  background-color: rgb(205, 205, 205);
+  background-color: #cdcdcd;
 }
 
 .dizel {
-  background-color: rgb(195, 195, 195);
+  background-color: #c3c3c3;
+}
+
+.disabled-row {
+  opacity: 0.8;
+  background-color: #807979;
+  color: #444;
+  text-decoration: line-through;
+}
+
+.total-row {
+  background-color: crimson;
+  color: #fff;
 }
 
 /*! MEDIA QUERIES */

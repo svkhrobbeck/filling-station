@@ -30,6 +30,7 @@
 
     <!-- MAIN -->
     <main class="main-content">
+      <!-- FUEL -->
       <section class="fuel">
         <div class="container">
           <div class="fuel__container">
@@ -42,7 +43,7 @@
             </form>
 
             <div class="table-wrappwer">
-              <table class="table" id="table">
+              <table class="table" id="fuel-table">
                 <thead>
                   <tr>
                     <th>Type</th>
@@ -55,6 +56,27 @@
             </div>
           </div>
           <p class="fuel__price-text">Total Price: <span id="price">0</span></p>
+          <p class="fuel__warn-text visually-hidden" id="warn"></p>
+        </div>
+      </section>
+
+      <!-- PURCHASES -->
+      <section class="purchases">
+        <div class="container purchases__container">
+          <table class="purchases__table visually-hidden" id="purchases-table">
+            <caption>
+              Purchases
+            </caption>
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </section>
     </main>
