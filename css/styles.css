@@ -12,7 +12,7 @@
 
 /** CONTAINER */
 .container {
-  max-width: 80%;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
@@ -20,6 +20,7 @@
 
 /** BUTTON */
 .button {
+  display: block;
   padding: 4px 12px;
   border-radius: 0;
   background-color: rgb(148, 236, 85);
@@ -32,6 +33,10 @@
 /* HEADER */
 .header {
   padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
 }
 
 .header__title {
@@ -48,14 +53,10 @@
 .form {
   display: flex;
   flex-direction: column;
-}
-
-.form:not(:last-child) {
   margin-right: 20px;
 }
 
 .form__fields {
-  max-width: 60%;
   width: 100%;
   display: flex;
   gap: 10px;
@@ -72,7 +73,7 @@
   flex-grow: 1;
 }
 
-.form__price-text {
+.fuel__price-text {
   font-size: 30px;
   font-family: "Arimo", sans-serif;
   font-weight: 400;
@@ -80,9 +81,14 @@
   display: flex;
   align-items: center;
   font-family: "Arimo", sans-serif;
+  margin-top: 10px;
 }
 
 /* TABLE */
+.table-wrappwer {
+  flex-grow: 1;
+}
+
 .table {
   width: 100%;
 }
@@ -127,4 +133,33 @@ td {
 
 .dizel {
   background-color: rgb(195, 195, 195);
+}
+
+/*! MEDIA QUERIES */
+@media only screen and (max-width: 1024px) {
+  .fuel__container {
+    flex-direction: column;
+  }
+
+  .form {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .form__fields {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .table-wrappwer {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .form__fields {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
 }
