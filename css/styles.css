@@ -113,6 +113,11 @@ body {
   flex-grow: 1;
 }
 
+/* PURCHASES */
+.purchases__container {
+  overflow-x: auto;
+}
+
 /* TABLE */
 .table-wrappwer {
   flex-grow: 1;
