@@ -15,7 +15,7 @@ const fuels = [
 
 // render options
 const renderSelectOptions = (data, elSelect) => {
-  elSelect.innerHTML = `<option value="" selected hidden>Select fuel type</option>`;
+  elSelect.innerHTML = `<option value="" selected hidden>Select Fuel Type</option>`;
 
   data.forEach(item => {
     const disabled = item.base === 0;
