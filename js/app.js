@@ -72,6 +72,11 @@ const renderTableRows = (data, tbody) => {
 // calculate
 const calculate = e => {
   e.preventDefault();
+  if (!elSelect.value) {
+    elWarn.classList.remove("visually-hidden");
+    elWarn.textContent = "Select fuel type!";
+    return;
+  }
   if (!elInput.value.trim()) return;
 
   const selectedType = fuels.find(fuel => fuel.type === elSelect.value);
